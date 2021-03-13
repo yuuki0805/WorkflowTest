@@ -18,3 +18,17 @@ jobs:
         with:
           name: test_artifact
           path: ./artifact.txt
+          
+  test2:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: test_artifact
+      - shell: bash
+        run: |
+          value=`cat artifact.txt`
+          echo $value
