@@ -7,6 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: alpine:latest
+    steps:
       - name: Run
         id: version
         run: |
