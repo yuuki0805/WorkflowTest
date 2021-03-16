@@ -13,7 +13,7 @@ jobs:
       - name: Run
         run: |
           sudo apt-get update
-          sudo apt-get install git jq -y
+          sudo apt-get install -y jq
       - name: Retrieve VERSION
         run: |
           set -xe
