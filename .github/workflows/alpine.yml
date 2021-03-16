@@ -1,0 +1,20 @@
+name: Alpine
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: alpine:latest
+      - name: Run
+        id: version
+        run: |
+          apk update
+          VERSION=$(apk search -x jq)
+          echo ::set-output name=VERSION::$VERSION
+      - name: Run2
+        run: |
+          echo $JQ_VERSION
+        env:
+          JQ_VERSION: ${{ steps.version.outputs.VERSION }}
