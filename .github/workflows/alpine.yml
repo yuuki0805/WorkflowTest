@@ -12,7 +12,7 @@ jobs:
         id: version
         run: |
           apk update
-          echo ::set-output name=JQ_VERSION::$(apk search -x jq)
+          echo ::set-output name=JQ_VERSION::$(apk search -x jq | sed -e 's/jq\-//g')
       - name: Run2
         run: |
           echo $JQ_VERSION
