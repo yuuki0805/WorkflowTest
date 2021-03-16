@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run
         run: |
-          apt-get update
-          apt-get install git jq -y
+          sudo apt-get update
+          sudo apt-get install git jq -y
       - name: Retrieve VERSION
         run: |
           set -xe
