@@ -12,10 +12,9 @@ jobs:
         id: version
         run: |
           apk update
-          VERSION=$(apk search -x jq)
-          echo ::set-output name=VERSION::$VERSION
+          echo ::set-output name=JQ_VERSION::$(apk search -x jq)
       - name: Run2
         run: |
           echo $JQ_VERSION
         env:
-          JQ_VERSION: ${{ steps.version.outputs.VERSION }}
+          JQ_VERSION: ${{ steps.version.outputs.JQ_VERSION }}
