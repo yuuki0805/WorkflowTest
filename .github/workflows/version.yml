@@ -18,7 +18,7 @@ jobs:
       - name: Retrieve VERSION
         run: |
           set -xe
-          VERSION=$(curl -s https://pypi.org/pypi/pyicloud/json | jq -R '.releases | keys | sort_by(. | split(".") | map(tonumber)) | .[-1]')
+          VERSION=$(curl -sS https://pypi.org/pypi/pyicloud/json | jq -R '.releases | keys | sort_by(. | split(".") | map(tonumber)) | .[-1]')
           if [ -z "$VERSION" ]; then
             echo '$VERSION is empty!'
             exit 1
